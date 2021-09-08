@@ -8,4 +8,3 @@
 
 User.create(name: "Kev", username: "kkirby16", password: "password")
 User.create(name: "John", username: "johnuser", password: "password")
-
