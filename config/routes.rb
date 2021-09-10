@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/api/v1/login", to: "sessions#create" #creating a session that will come from a post request.
+  post "/api/v1/login", to: "api/v1/sessions#create" #creating a session that will come from a post request.
 
   namespace :api do
     namespace :v1 do
