@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
   helpers do
     def current_user
-      User.first
+      User.find(session[:user_id])
       #adding mocked version of being logged in.
     end
 
