@@ -25,7 +25,7 @@ class Api::V1::SessionsController < ApplicationController
   def destroy
     session.clear #.clear returns an empty hash when used on a hash.
     render json: {
-      notice: "Successfully logged out.",
-    } #kinda just returning a notice here.
+      notice: "Successfully logged out.", #kinda just returning a notice here.
+    }, status: :ok
   end
 end
