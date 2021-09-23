@@ -6,5 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Kev", username: "kkirby16", password: "password")
-User.create(name: "John", username: "johnuser", password: "password")
+Post.create(user_id: 1, caption: "hello", likes: 0, seeded_image_data: "https://loremflickr.com/g/320/240/hiking")
+Post.create(user_id: 2, caption: "howdy", likes: 0, seeded_image_data: "https://loremflickr.com/g/320/240/hiking")
+
+# User.create(name: "Kev", username: "kkirby16", password: "password")
+# User.create(name: "John", username: "johnuser", password: "password")
