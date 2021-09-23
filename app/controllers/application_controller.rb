@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   include ::ActionController::Cookies #also need to tell our controllers that we turned this stuff on.
 
   def current_user
-    User.find_by(id: session[:user_id])
+    @current_user ||= User.find_by(id: session[:user_id])
     #adding mocked version of being logged in.
   end
 
