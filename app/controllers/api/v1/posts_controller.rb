@@ -5,6 +5,8 @@ class Api::V1::PostsController < ApplicationController
     # if logged_in?
     @posts = Post.all
 
+    #posts.sort_by(created_at ascending or descending)
+
     # render json: @posts
 
     posts_json = PostSerializer.new(@posts).serializable_hash.to_json
@@ -34,6 +36,11 @@ class Api::V1::PostsController < ApplicationController
     else
       render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
   end
 
   private
