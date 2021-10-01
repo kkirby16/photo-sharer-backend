@@ -11,3 +11,4 @@ Post.create(user_id: 2, caption: "howdy", likes: 0, seeded_image_data: "https://
 
 # User.create(name: "Kev", username: "kkirby16", password: "password")
 # User.create(name: "John", username: "johnuser", password: "password")
+#***add in a few seed data posts with an image I select as the seeded_image_data attribute
