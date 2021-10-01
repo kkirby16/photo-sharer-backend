@@ -171,6 +171,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jsonapi-serializer
   listen (~> 3.2)
+  mini_magick
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.4, >= 6.0.4.1)
