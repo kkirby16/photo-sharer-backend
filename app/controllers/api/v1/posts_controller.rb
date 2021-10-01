@@ -3,9 +3,8 @@ class Api::V1::PostsController < ApplicationController
     #is there an incoming user id?
     #but does that matter (maybe this doesn't matter for me?)? do we always want just the current user's trips?
     # if logged_in?
-    @posts = Post.all
 
-    #posts.sort_by(created_at ascending or descending)
+    @posts = Post.order(created_at: :desc)
 
     # render json: @posts
 
@@ -46,7 +45,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:image, :user_id, :caption, :likes)
+    params.permit(:image, :user_id, :caption, :likes) #should i permit comments as well?
   end
 end
 
