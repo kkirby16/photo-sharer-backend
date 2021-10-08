@@ -11,8 +11,7 @@ class Api::V1::UsersController < ApplicationController
   #  GET /users/1
   def show
     # render json: @user
-    user_json = UserSerializer.new(@user).serializable_hash.to_json
-    render json: user_json
+    render json: @user
   end
 
   # POST /users
@@ -20,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      render json: UserSerializer.new(@user), status: :created
+      render json: @user, status: :created
     else
       resp = {
         error: @user.errors.full_messages.to_sentence,
