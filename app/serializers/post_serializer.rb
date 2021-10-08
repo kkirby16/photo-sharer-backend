@@ -1,7 +1,8 @@
-class PostSerializer
+class PostSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  include JSONAPI::Serializer
-  attributes :id, :user_id, :user, :caption, :likes, :image, :comments, :image_url
+  #   include JSONAPI::Serializer
+  attributes :id, :user_id, :user, :caption, :likes, :image, :image_url, :seeded_image_data
+  has_many :comments, serializer: CommentSerializer
 
   def image
     if object.image.attached?
