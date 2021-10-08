@@ -8,9 +8,9 @@ class Api::V1::PostsController < ApplicationController
 
     # render json: @posts
 
-    posts_json = PostSerializer.new(@posts).serializable_hash.to_json
+    # posts_json = PostSerializer.new(@posts).serializable_hash.to_json
 
-    render json: posts_json
+    render json: @posts
 
     # render json: { posts: [] }
     # else
@@ -29,9 +29,10 @@ class Api::V1::PostsController < ApplicationController
     end
 
     # if post.save(image: image_url)
+
     if post.save
-      post_json = PostSerializer.new(post).serializable_hash.to_json
-      render json: post_json, status: :ok
+      # post_json = PostSerializer.new(post).serializable_hash.to_json
+      render json: post, status: :ok
     else
       render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
     end
@@ -45,7 +46,7 @@ class Api::V1::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:image, :user_id, :caption, :likes) #should i permit comments as well?
+    params.permit(:image, :user_id, :caption) #should i permit comments as well? I took out :likes from params.permit
   end
 end
 
