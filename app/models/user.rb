@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts, through: :comments
   has_many :posts
+  has_many :likes
 
   validates :name, :username, presence: true
   validates :username, uniqueness: true
