@@ -13,4 +13,9 @@ class Api::V1::CommentsController < ApplicationController
     # @post.comments.build({ user_id: @post.user, text: params[:comment] })
     render json: @comment
   end
+
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    @comment.destroy
+  end
 end
