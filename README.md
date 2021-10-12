@@ -1,24 +1,47 @@
-# README
+# React Project - Photo Sharing app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I built a photo sharing app which has certain similarities to Instagram. This app has a rails backend and a React/Redux/Thunk frontend. It also uses Active Storage for image upload ability.
 
-Things you may want to cover:
+I've always liked Instagram and posting my own photography there. So for this final project I decided to make an app with similarities to Instagram.
 
-* Ruby version
+This app has signup, login and logout functionality. This app allows users to see posts that other users have uploaded, like posts, and comment on posts. It also allows for you to share your own posts that contain an uploaded image and a caption, and also to be able to delete your posts. Additionally, you can unlike posts you have liked and you can delete comments you have made on posts. I've also added custom CSS to style my frontend.
 
-* System dependencies
+## To install and run:
 
-* Configuration
+-I have two repos, a backend one and a frontend one, that you need to get into to run my app.
 
-* Database creation
+-Fork and clone the backend repository at this link: https://github.com/kkirby16/react-project-backend
 
-* Database initialization
+-Once in the program, open the terminal and run bundle install.
 
-* How to run the test suite
+-Next, run rake db:migrate and rake db:seed.
 
-* Services (job queues, cache servers, search engines, etc.)
+-Then, run rails s -p 4500
 
-* Deployment instructions
+-Next, fork and clone the frontend repository at this link: https://github.com/kkirby16/react-project-frontend
 
-* ...
+-Run npm start
+
+-You will then see my site open up in the browser.
+
+## How to use the site:
+
+-When the site opens in the browser, you'll come to a greeting page for the site with some descriptive text and button for signup and for login.
+
+-Click the signup button to go to the signup page which will allow you to signup.
+
+-If a user has possibly used the site already and has an account, they can also choose to login by clicking the login button instead.
+
+-Once you are logged in you can upload towards the top of the screen by choosing an image to upload from your computer and by writing a caption for the post.
+
+-Once created, you'll see your post created and placed towards the top of the screen. If you want to you can delete posts that you've created by clicking the trashcan icon underneath the post.
+
+-You can also scroll down and see posts that others have potentially posted, although if nobody else has posted from an account yet, you'll just see some test posts that I created with the seeds file.
+
+-You can like any post you see by clicking the heart icon underneath it, and you can also comment on any post you see by typing in a post's "Add a comment..." input box and then pressing the "Post" button. Comments made on posts will be displayed underneath the "Add a comment..." input box. You can also unlike a post you have liked by clicking the red heart icon and you can delete any comments you've made on a post by clicking the trashcan icon to the right of the comment.
+
+-If you want to logout of the site, you can press the icon in the top right corner of the screen.
+
+Video of how to use my app: https://youtu.be/cJb1p153Y-0
+
+This project is licensed under: https://www.gnu.org/licenses/gpl-3.0.en.html
