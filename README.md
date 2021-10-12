@@ -28,9 +28,9 @@ This app has signup, login and logout functionality. This app allows users to se
 
 -When the site opens in the browser, you'll come to a greeting page for the site with some descriptive text and button for signup and for login.
 
--Click the signup button to go to the signup page which will allow you to signup.
+-Click the signup button to go to the signup page which will allow you to signup. There is also a link you can click on this page that goes to the homepage.
 
--If a user has possibly used the site already and has an account, they can also choose to login by clicking the login button instead.
+-If a user has possibly used the site already and has an account, they can also choose to login by clicking the login button instead. There is also an option to click a link that takes you to the homepage from here.
 
 -Once you are logged in you can upload towards the top of the screen by choosing an image to upload from your computer and by writing a caption for the post.
 
