@@ -10,7 +10,7 @@ This app has signup, login and logout functionality. This app allows users to se
 
 -I have two repos, a backend one and a frontend one, that you need to get into to run my app.
 
--Fork and clone the backend repository at this link: https://github.com/kkirby16/react-project-backend
+-Fork and clone the backend repository at this link: https://github.com/kkirby16/photo-sharer-backend
 
 -Once in the program, open the terminal and run bundle install.
 
@@ -18,7 +18,7 @@ This app has signup, login and logout functionality. This app allows users to se
 
 -Then, run rails s -p 4500
 
--Next, fork and clone the frontend repository at this link: https://github.com/kkirby16/react-project-frontend
+-Next, fork and clone the frontend repository at this link: https://github.com/kkirby16/photo-sharer-frontend
 
 -Run npm start
 
