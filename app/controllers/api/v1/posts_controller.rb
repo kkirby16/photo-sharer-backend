@@ -28,10 +28,7 @@ class Api::V1::PostsController < ApplicationController
       image_url = url_for(post.image)
     end
 
-    # if post.save(image: image_url)
-
     if post.save
-      # post_json = PostSerializer.new(post).serializable_hash.to_json
       render json: post, status: :ok
     else
       render json: { errors: post.errors.full_messages }, status: :unprocessable_entity
