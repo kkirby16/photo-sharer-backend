@@ -50,6 +50,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   Rails.application.routes.default_url_options = {
-    host: 'http://localhost:4500'
+    host: 'https://photo-sharer-backend.herokuapp.com'
   }
 end
