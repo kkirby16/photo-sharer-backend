@@ -105,6 +105,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     pg (1.2.3)
     puma (4.3.8)
       nio4r (~> 2.0)
@@ -165,11 +167,10 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.4.2)
-    nokogiri (1.11.3-x86_64-linux)
-  racc (~> 1.4)
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -190,7 +191,7 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.6.1p33
+   ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.14
+   2.2.22
