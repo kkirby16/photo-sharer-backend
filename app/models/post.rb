@@ -9,6 +9,4 @@ class Post < ApplicationRecord
   def image_url
     Rails.application.routes.url_helpers.url_for(image) if image.attached?
   end
-
-  #would post belong to a user too?
 end

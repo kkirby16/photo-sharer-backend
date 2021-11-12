@@ -10,7 +10,6 @@ class Api::V1::UsersController < ApplicationController
 
   #  GET /users/1
   def show
-    # render json: @user
     render json: @user
   end
 
@@ -44,12 +43,11 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
+  #Only allow a trusted parameter "white list" through.
   def user_params
     params.require(:user).permit(:name, :username, :password)
   end #permitting these name, username and password attributes.
