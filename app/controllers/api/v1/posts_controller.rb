@@ -12,12 +12,7 @@ class Api::V1::PostsController < ApplicationController
 
     render json: @posts
 
-    # render json: { posts: [] }
-    # else
-    #   render json: {
-    #            error: "You must be logged in to see posts.",
-    #          }
-    # end
+
   end
 
   def create
