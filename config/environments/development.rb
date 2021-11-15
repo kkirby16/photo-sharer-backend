@@ -33,8 +33,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  Rails.application.config.action_mailer.default_url_options = 
-      { :host => 'photo-sharer-backend.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = "photo-sharer-backend.herokuapp.com"
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -51,6 +50,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  
 end
