@@ -49,7 +49,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  Rails.application.routes.default_url_options = {
-    host: 'https://photo-sharer-backend.herokuapp.com'
-  }
+  
 end
