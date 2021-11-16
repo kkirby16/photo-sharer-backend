@@ -57,4 +57,4 @@ class ApplicationController < ActionController::API
   end
 end
 
-#get the user id from the jwt.
+#{ verify_iss: true, iss: expected_iss, verify_aud: true, aud: expected_aud, algorithm: "HS256" }
