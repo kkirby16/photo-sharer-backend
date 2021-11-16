@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < ApplicationController
+  before_action :authenticate_user, except: :create
+
   def create
     @user = User.find_by(username: params[:session][:username])
 
@@ -8,7 +10,7 @@ class Api::V1::SessionsController < ApplicationController
     else
       render json: {
                error: "Invalid Credentials",
-             }
+             }, status: 401
     end
   end
 
@@ -18,7 +20,7 @@ class Api::V1::SessionsController < ApplicationController
     else
       render json: {
                error: "No one logged in",
-             }
+             }, status: 401
     end
   end
 
