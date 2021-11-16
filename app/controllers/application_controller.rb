@@ -12,7 +12,7 @@
 # end
 
 class ApplicationController < ActionController::API
-  before_action :authenticate_user
+  # before_action :authenticate_user
   include ::ActionController::Cookies #also need to tell our controllers that we turned this stuff on.
 
   def current_user
@@ -51,7 +51,7 @@ class ApplicationController < ActionController::API
       decoded_token = JWT.decode token, ENV["SECRET_KEY_BASE"], true
       return decoded_token
     rescue JWT::DecodeError
-      Rails.logger.warn "Error decoding the JWT: " + e.to_s #turning error into a string"
+      Rails.logger.info "Error decoding the JWT: " + e.to_s #turning error into a string"
     end
     nil
   end

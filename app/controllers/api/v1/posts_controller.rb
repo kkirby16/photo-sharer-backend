@@ -1,4 +1,6 @@
 class Api::V1::PostsController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @posts = Post.order(created_at: :desc)
     render json: @posts
