@@ -5,10 +5,11 @@ class Api::V1::SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
 
     if @user && @user.authenticate(params[:session][:password])
-      session[:user_id] = @user.id #this logs the user in. putting the user's id in the session hash.
-      logger.info "User Id: #{session[:user_id].inspect}"
+      #session[:user_id] = @user.id #this logs the user in. putting the user's id in the session hash.
+      token = build_jwt(@user.id) #return token to the user once they've logged in.
+      logger.info "UUseer Token: #{token.inspect}"
 
-      render json: @user, status: :ok
+      render json: { user: @user, token: token }, status: 201
     else
       render json: {
                error: "Invalid Credentials",
@@ -31,5 +32,19 @@ class Api::V1::SessionsController < ApplicationController
     render json: {
       notice: "Successfully logged out.", #kinda just returning a notice here.
     }, status: :ok
+  end
+
+  private
+
+  def build_jwt(user_id, valid_for_minutes = 1440)
+    exp = Time.now.to_i + (valid_for_minutes * 60)
+    payload = {
+      "iss": "fusionauth.io",
+      "aud": "238d4793-70de-4183-9707-48ed8ecd19d9",
+      "exp": exp,
+      "user_id": user_id,
+    }
+
+    JWT.encode payload, Rails.configuration.x.oauth.jwt_secret, "HS256"
   end
 end

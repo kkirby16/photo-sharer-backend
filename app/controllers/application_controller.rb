@@ -16,8 +16,11 @@ class ApplicationController < ActionController::API
   include ::ActionController::Cookies #also need to tell our controllers that we turned this stuff on.
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-    #adding mocked version of being logged in.
+    token = request.headers["Authorization"]
+    token.gsub!("Bearer ", "")
+    decoded_token = JWT.decode token, Rails.configuration.x.oauth.jwt_secret, true
+    logger.info "User decoded_token: #{decoded_token.inspect}"
+    @current_user ||= User.find_by(id: decoded_token["user_id"])
   end
 
   def logged_in?
@@ -25,8 +28,31 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_user
-    logger.info "User Info: #{current_user.inspect}"
-    logger.info "User Id: #{session[:user_id].inspect}"
-    head :unauthorized unless current_user
+    token = request.headers["Authorization"]
+    if !token
+      head :forbidden
+    end
+    if !valid_token(token)
+      head :forbidden
+    end
+  end
+
+  private
+
+  def valid_token(token)
+    unless token
+      return false
+    end
+
+    token.gsub!("Bearer ", "")
+    begin
+      expected_iss = "fusionauth.io"
+      expected_aud = "238d4793-70de-4183-9707-48ed8ecd19d9"
+      decoded_token = JWT.decode token, Rails.configuration.x.oauth.jwt_secret, true, { verify_iss: true, iss: expected_iss, verify_aud: true, aud: expected_aud, algorithm: "HS256" }
+      return true
+    rescue JWT::DecodeError
+      Rails.logger.warn "Error decoding the JWT: " + e.to_s
+    end
+    false
   end
 end
