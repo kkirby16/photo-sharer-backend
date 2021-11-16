@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
 
       token = build_jwt(@user.id) #return token to the user once they've logged in.
       logger.info "UUseer Token: #{token.inspect}"
-      render json: { user: @user, token: token }, status: 201
+      render json: { token: token, user: UserSerializer.new(@user).as_json }, status: :created
     else
       resp = {
         error: @user.errors.full_messages.to_sentence,
@@ -58,7 +58,7 @@ class Api::V1::UsersController < ApplicationController
 
   def build_jwt(user_id, valid_for_minutes = 1440) #user will have to use the token in local storage and use it
     exp = Time.now.to_i + (valid_for_minutes * 60)
-    payload = {
+    payload = { #we are encoding this payload
       "iss": "fusionauth.io",
       "aud": "238d4793-70de-4183-9707-48ed8ecd19d9",
       "exp": exp,
