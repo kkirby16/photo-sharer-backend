@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     payload = authenticate_user
     logger.info "Payload info: #{payload.inspect}"
     head :forbidden unless payload
-    @current_user ||= User.find_by(id: payload && payload["user_id"])
+    @current_user ||= User.find_by(id: payload[0]["user_id"]) #
   end
 
   def logged_in?
@@ -48,7 +48,7 @@ class ApplicationController < ActionController::API
     begin
       expected_iss = "fusionauth.io" #needs to match what is in sessions controller that we encoded
       expected_aud = "238d4793-70de-4183-9707-48ed8ecd19d9" #needs to match what is in sessions controller that we encoded
-      decoded_token = JWT.decode token, ENV["SECRET_KEY_BASE"], true
+      decoded_token = JWT.decode token, ENV["SECRET_KEY_BASE"], true, { verify_iss: true, iss: expected_iss, verify_aud: true, aud: expected_aud, algorithm: "HS256" }
       return decoded_token
     rescue JWT::DecodeError
       Rails.logger.info "Error decoding the JWT: " + e.to_s #turning error into a string"
@@ -56,5 +56,3 @@ class ApplicationController < ActionController::API
     nil
   end
 end
-
-#{ verify_iss: true, iss: expected_iss, verify_aud: true, aud: expected_aud, algorithm: "HS256" }
