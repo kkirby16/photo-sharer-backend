@@ -25,6 +25,8 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_user
-    head :unauthorized if !current_user
+    logger.info "User Info: #{current_user.inspect}"
+    logger.info "User Id: #{session[:user_id].inspect}"
+    head :unauthorized unless current_user
   end
 end
