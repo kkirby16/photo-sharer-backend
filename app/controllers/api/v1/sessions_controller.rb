@@ -39,6 +39,6 @@ class Api::V1::SessionsController < ApplicationController
       "user_id": user_id,
     }
 
-    JWT.encode payload, Rails.configuration.x.oauth.jwt_secret, "HS256"
+    JWT.encode payload, Rails.application.secrets.secret_key_base, "HS256"
   end
 end

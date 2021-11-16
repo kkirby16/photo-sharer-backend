@@ -36,7 +36,5 @@ module ReactProjectBackend
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: "_cookie_name"
     config.hosts.clear
-
-    config.middleware.insert_after(ActionDispatch::Cookies, ActionDispatch::Session::CookieStore)
   end #configuring middleware to grab cookies and to grab sessions.
 end
