@@ -17,7 +17,7 @@ class ApplicationController < ActionController::API
 
   def current_user
     payload = authenticate_user
-    logger.info "Payload info: ${payload}"
+    logger.info "Payload info: #{payload.inspect}"
     @current_user ||= User.find_by(id: payload["user_id"])
   end
 
