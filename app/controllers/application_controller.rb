@@ -48,7 +48,7 @@ class ApplicationController < ActionController::API
     begin
       expected_iss = "fusionauth.io" #needs to match what is in sessions controller that we encoded
       expected_aud = "238d4793-70de-4183-9707-48ed8ecd19d9" #needs to match what is in sessions controller that we encoded
-      decoded_token = JWT.decode token, Rails.application.secrets.secret_key_base, true
+      decoded_token = JWT.decode token, ENV["SECRET_KEY_BASE"], true
       return decoded_token
     rescue JWT::DecodeError
       Rails.logger.warn "Error decoding the JWT: " + e.to_s #turning error into a string"

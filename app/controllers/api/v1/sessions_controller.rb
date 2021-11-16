@@ -39,6 +39,6 @@ class Api::V1::SessionsController < ApplicationController
       "user_id": user_id,
     }
 
-    JWT.encode payload, Rails.application.secrets.secret_key_base, "HS256"
+    JWT.encode payload, ENV["SECRET_KEY_BASE"], "HS256" #using this to encode and decode the credentials of the user/jwt tokens
   end
 end
