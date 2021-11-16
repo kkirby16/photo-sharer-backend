@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
     payload = authenticate_user
     logger.info "Payload info: #{payload.inspect}"
     head :forbidden unless payload
-    @current_user ||= User.find_by(id: payload["user_id"])
+    @current_user ||= User.find_by(id: payload && payload["user_id"])
   end
 
   def logged_in?
