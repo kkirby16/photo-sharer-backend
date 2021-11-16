@@ -7,7 +7,7 @@ class Api::V1::SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       #session[:user_id] = @user.id #this logs the user in. putting the user's id in the session hash.
       token = build_jwt(@user.id) #return token to the user once they've logged in.
-      logger.info "UUseer Token: #{token.inspect}"
+      logger.info "User Token: #{token.inspect}"
 
       render json: { user: @user, token: token }, status: 201
     else

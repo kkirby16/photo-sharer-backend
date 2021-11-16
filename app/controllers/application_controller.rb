@@ -17,6 +17,9 @@ class ApplicationController < ActionController::API
 
   def current_user
     token = request.headers["Authorization"]
+    if !token
+      head :forbidden
+    end
     token.gsub!("Bearer ", "")
     decoded_token = JWT.decode token, Rails.configuration.x.oauth.jwt_secret, true
     logger.info "User decoded_token: #{decoded_token.inspect}"
