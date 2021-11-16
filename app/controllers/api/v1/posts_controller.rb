@@ -7,8 +7,8 @@ class Api::V1::PostsController < ApplicationController
   def create
     post = Post.new(post_params)
 
-    if params[:file]
-      post.image.attach(params[:file])
+    if params[:image]
+      post.image.attach(params[:image])
       image_url = url_for(post.image)
     end
 
