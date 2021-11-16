@@ -18,13 +18,7 @@ class Api::V1::SessionsController < ApplicationController
   end
 
   def get_current_user
-    if logged_in?
-      render json: current_user
-    else
-      render json: {
-               error: "No one logged in",
-             }, status: 401
-    end
+    render json: current_user
   end
 
   def destroy
@@ -36,7 +30,7 @@ class Api::V1::SessionsController < ApplicationController
 
   private
 
-  def build_jwt(user_id, valid_for_minutes = 1440)
+  def build_jwt(user_id, valid_for_minutes = 1440) #building the token. want to check that both the iss and aud are the same thing we encoded for the user.
     exp = Time.now.to_i + (valid_for_minutes * 60)
     payload = {
       "iss": "fusionauth.io",
