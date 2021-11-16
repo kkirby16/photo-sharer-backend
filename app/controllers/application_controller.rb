@@ -18,6 +18,7 @@ class ApplicationController < ActionController::API
   def current_user
     payload = authenticate_user
     logger.info "Payload info: #{payload.inspect}"
+    head :forbidden unless payload
     @current_user ||= User.find_by(id: payload["user_id"])
   end
 
@@ -27,6 +28,7 @@ class ApplicationController < ActionController::API
 
   def authenticate_user
     token = request.headers["Authorization"]
+    logger.info "Token info: #{token.inspect}"
     if !token
       head :forbidden
     end
