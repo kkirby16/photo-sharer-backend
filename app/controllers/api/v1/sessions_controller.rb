@@ -6,6 +6,8 @@ class Api::V1::SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id #this logs the user in. putting the user's id in the session hash.
+      logger.info "User Id: #{session[:user_id].inspect}"
+
       render json: @user, status: :ok
     else
       render json: {
