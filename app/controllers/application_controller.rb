@@ -27,11 +27,10 @@ class ApplicationController < ActionController::API
   end
 
   def authenticate_user
+    head :unauthorized if request.headers["Authorization"].nil?
+    logger.info "Header: #{request.headers.inspect}"
     token = request.headers["Authorization"]
     logger.info "Token info: #{token.inspect}"
-    if !token
-      head :forbidden
-    end
     payload = valid_token(token)
     if !payload
       head :forbidden
