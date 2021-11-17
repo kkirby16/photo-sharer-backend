@@ -1,16 +1,24 @@
 # React Project - Photo Sharing app
 
-I built a photo sharing app which has certain similarities to Instagram. This app has a rails backend and a React/Redux/Thunk frontend. It also uses Active Storage for image upload ability.
+I built a photo sharing app which has some similarities to Instagram. This app has a rails backend and a React/Redux/Thunk frontend. It also uses Active Storage for image upload ability.
 
-I've always liked Instagram and posting my own photography there. So for this final project I decided to make an app with similarities to Instagram.
+I've always liked Instagram and posting my own photography there. So, for this final project I decided to make an app that is similar to Instagram in ways.
 
-This app has signup, login and logout functionality. This app allows users to see posts that other users have uploaded, like posts, and comment on posts. It also allows for you to share your own posts that contain an uploaded image and a caption, and also to be able to delete your posts. Additionally, you can unlike posts you have liked and you can delete comments you have made on posts. I've also added custom CSS to style my frontend.
+###
+
+###
+
+This app has signup, login and logout functionality. It allows users to see posts that other users have uploaded, like posts, comment on posts, and search posts by username.
+
+It also allows you to share your own posts that contain an uploaded image and a caption, as well as delete your posts if you'd like. Additionally, you can unlike posts you've liked and delete comments you've made on posts.
+
+I've also added custom CSS to style my frontend.
 
 ## To install and run:
 
--I have two repos, a backend one and a frontend one, that you need to get into to run my app.
+-I have two repos that you need to get into to run my app: a backend one and a frontend one
 
--Fork and clone the backend repository at this link: https://github.com/kkirby16/photo-sharer-backend
+-Fork and clone the backend repo at this link: https://github.com/kkirby16/photo-sharer-backend
 
 -Once in the program, open the terminal and run bundle install.
 
@@ -22,19 +30,19 @@ This app has signup, login and logout functionality. This app allows users to se
 
 -Run npm start
 
--You will then see my site open up in the browser.
+-You'll then see my site open in the browser.
 
 ## How to use the site:
 
--When the site opens in the browser, you'll come to a greeting page for the site with some descriptive text and button for signup and for login.
+-When the site opens in the browser, you'll come to a greeting page with some descriptive text and buttons for signup and login.
 
--Click the signup button to go to the signup page which will allow you to signup. There is also a link on this page that goes to the homepage.
+-Click signup to go to the signup page which will allow you to signup. There is also a link on this page that goes to the homepage.
 
--If a user has possibly used the site already and has an account, they can also choose to login by clicking the login button instead. There is also an option to click a link that takes you to the homepage from here.
+-If a user has used the site already and has an account, they can choose to login by clicking the login button instead. There is also an option to click a link that takes you to the homepage from here.
 
--Once you are logged in you can upload towards the top of the screen by choosing an image to upload from your computer and by writing a caption for the post.
+-Once you're logged in you can upload towards the top of the screen by choosing an image to upload from your computer and writing a caption for the post.
 
--Once created, you'll see your post created and placed towards the top of the screen. If you want to you can delete posts that you've created by clicking the trashcan icon underneath the post.
+-Once created, you'll see the post you just made towards the top of the screen. If you want to you can delete posts that you've created by clicking the trashcan icon underneath the post.
 
 -You can also scroll down and see posts that others have potentially posted, although if nobody else has posted from an account yet, you'll just see some test posts that I created with the seeds file.
 
