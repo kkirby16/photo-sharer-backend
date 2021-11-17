@@ -44,4 +44,6 @@ This app has signup, login and logout functionality. This app allows users to se
 
 Video of how to use my app: https://youtu.be/cJb1p153Y-0
 
+Blog I wrote that is related to this project: https://dev.to/kkirby16/how-i-can-like-posts-in-my-instagram-esque-rails-react-redux-app-pcl
+
 This project is licensed under: https://www.gnu.org/licenses/gpl-3.0.en.html
