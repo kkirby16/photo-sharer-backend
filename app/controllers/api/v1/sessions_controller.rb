@@ -3,12 +3,10 @@ class Api::V1::SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:session][:username])
-
     if @user && @user.authenticate(params[:session][:password])
       #session[:user_id] = @user.id #this logs the user in. putting the user's id in the session hash.
       token = build_jwt(@user.id) #return token to the user once they've logged in.
       logger.info "User Token: #{token.inspect}"
-
       render json: { user: @user, token: token }, status: 201
     else
       render json: {
@@ -38,7 +36,6 @@ class Api::V1::SessionsController < ApplicationController
       "exp": exp,
       "user_id": user_id,
     }
-
     JWT.encode payload, ENV["SECRET_KEY_BASE"], "HS256" #using this to encode and decode the credentials of the user/jwt tokens
   end
 end
