@@ -42,11 +42,13 @@ I've also added custom CSS to style my frontend.
 
 -Once you're logged in you can upload towards the top of the screen by choosing an image to upload from your computer and writing a caption for the post.
 
--Once created, you'll see the post you just made towards the top of the screen. If you want to you can delete posts that you've created by clicking the trashcan icon underneath the post.
+-Once created, you'll see the post you just made towards the top of the screen. You can delete posts you've made by clicking the trashcan icon underneath the post.
 
--You can also scroll down and see posts that others have potentially posted, although if nobody else has posted from an account yet, you'll just see some test posts that I created with the seeds file.
+-You can also scroll down and see posts others have potentially posted, although if nobody else has posted from an account yet, you'll just see some test posts that I created with the seeds file.
 
--You can like any post you see by clicking the heart icon underneath it, and you can also comment on any post you see by typing in a post's "Add a comment..." input box and then pressing the "Post" button. Comments made on posts will be displayed underneath the "Add a comment..." input box. You can also unlike a post you have liked by clicking the red heart icon and you can delete any comments you've made on a post by clicking the trashcan icon to the right of the comment.
+-You can like posts by clicking the heart icon underneath them, and you can also comment on posts by typing in a post's "Add a comment..." input box and pressing the "Post" button. Comments made on posts will be displayed underneath the "Add a comment..." input box. You can also unlike a post you've liked by clicking the red heart icon and you can delete comments you've made on a post by clicking the trashcan icon to the right of the comment.
+
+-You can search posts by username in the search bar at the top of the site.
 
 -If you want to logout of the site, you can press the icon in the top right corner of the screen.
 
