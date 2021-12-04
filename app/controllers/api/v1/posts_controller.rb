@@ -22,6 +22,7 @@ class Api::V1::PostsController < ApplicationController
 
   def destroy
     @post = Post.find_by(id: params[:id])
+    @post.comments.destroy
     @post.destroy
   end
 
