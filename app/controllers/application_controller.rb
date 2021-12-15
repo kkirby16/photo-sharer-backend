@@ -17,6 +17,9 @@ class ApplicationController < ActionController::API
     head :unauthorized if request.headers["Authorization"].nil? #Request instance with the current headers. Returns an Array of [String, Hash] if a token is present. Returns nil if no token is found.
 
     token = request.headers["Authorization"]
+    puts "####################################"
+    puts token
+    puts "####################################"
     logger.info "Token info: #{token.inspect}"
     payload = valid_token(token)
     if !payload
