@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user, except: :create
+  before_action :authenticate_user, only: [:show, :index, :update, :destroy]
   before_action :set_user, only: [:show, :update, :destroy]
 
   #  GET /users
@@ -20,7 +20,7 @@ class Api::V1::UsersController < ApplicationController
       #session[:user_id] = @user.id #session works when have frontend and backedn on rails app.
 
       token = build_jwt(@user.id) #return token to the user once they've logged in.
-      logger.info "UUseer Token: #{token.inspect}"
+      logger.info "User Token: #{token.inspect}"
       render json: { token: token, user: UserSerializer.new(@user).as_json }, status: :created
     else
       resp = {
