@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user, only: [:show, :index, :update, :destroy]
+  before_action :authenticate_user, except: :create
   before_action :set_user, only: [:show, :update, :destroy]
 
   #  GET /users
