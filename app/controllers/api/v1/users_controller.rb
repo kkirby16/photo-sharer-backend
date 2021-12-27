@@ -17,7 +17,6 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      #session[:user_id] = @user.id #session works when have frontend and backedn on rails app.
 
       token = build_jwt(@user.id) #return token to the user once they've logged in.
       logger.info "User Token: #{token.inspect}"

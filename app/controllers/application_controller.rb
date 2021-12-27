@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::API
-  # before_action :authenticate_user
   include ::ActionController::Cookies #also need to tell our controllers that we turned this stuff on.
 
   def current_user
-    payload = authenticate_user
+    payload = authenticate_user #sets payload equal to decoded/validated token if there is one. 
     logger.info "Payload info: #{payload.inspect}"
     head :forbidden unless payload
-    @current_user ||= User.find_by(id: payload && payload[0]["user_id"])
+    @current_user ||= User.find_by(id: payload && payload[0]["user_id"]) #finds user by user_id on decoded token
   end
 
   def logged_in?
@@ -17,11 +16,9 @@ class ApplicationController < ActionController::API
     head :unauthorized if request.headers["Authorization"].nil? #Request instance with the current headers. Returns an Array of [String, Hash] if a token is present. Returns nil if no token is found.
 
     token = request.headers["Authorization"]
-    puts "####################################"
     puts token
-    puts "####################################"
     logger.info "Token info: #{token.inspect}"
-    payload = valid_token(token)
+    payload = valid_token(token)  #sets payload equal to the decoded/validated token if there is one.
     if !payload
       head :forbidden
     end
